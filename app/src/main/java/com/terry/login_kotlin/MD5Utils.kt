@@ -12,11 +12,8 @@ object MD5Utils {
             digest = MessageDigest.getInstance("md5")
             // 数组 byte[] result -> digest.digest( );  文本 text.getBytes();
             val result = digest!!.digest(text.toByteArray())
-            //创建StringBuilder对象 然后建议StringBuffer，安全性高
-            //StringBuilder sb = new StringBuilder();
             val sb = StringBuffer()
             // result数组，digest.digest ( ); -> text.getBytes();
-            // for 循环数组byte[] result;
             for (b in result) {
                 // 0xff 为16进制
                 val number = b and 0xff.toByte()
@@ -28,7 +25,6 @@ object MD5Utils {
                     sb.append(hex)
                 }
             }
-            //sb StringBuffer sb = new StringBuffer();对象实例化
             return sb.toString()
         } catch (e: NoSuchAlgorithmException) {
             e.printStackTrace()

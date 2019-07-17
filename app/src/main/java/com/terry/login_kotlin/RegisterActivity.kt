@@ -78,7 +78,6 @@ class RegisterActivity : AppCompatActivity() {
                     data.putExtra("userName", userName)
                     setResult(Activity.RESULT_OK, data)
                     //RESULT_OK为Activity系统常量，状态码为-1，
-                    // 表示此页面下的内容操作成功将data返回到上一页面，如果是用back返回过去的则不存在用setResult传递data值
                     this@RegisterActivity.finish()
                 }
             }
@@ -92,8 +91,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun isExistUserName(userName: String?): Boolean {
         var has_userName = false
-        //mode_private SharedPreferences sp = getSharedPreferences( );
-        // "loginInfo", MODE_PRIVATE
+        // "loginInfo"
         val sp = getSharedPreferences("loginInfo", MODE_PRIVATE)
         //获取密码
         val spPsw = sp.getString(userName, "")//传入用户名获取密码
@@ -105,15 +103,14 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun saveRegisterInfo(userName: String?, psw: String?) {
-        val md5Psw = MD5Utils.md5(psw!!)//把密码用MD5加密
-        //loginInfo表示文件名, mode_private SharedPreferences sp = getSharedPreferences( );
+        //把密码用MD5加密
+        val md5Psw = MD5Utils.md5(psw!!)
+        //loginInfo表示文件名
         val sp = getSharedPreferences("loginInfo", MODE_PRIVATE)
-        //获取编辑器， SharedPreferences.Editor  editor -> sp.edit();
         val editor = sp.edit()
         //以用户名为key，密码为value保存在SharedPreferences中
-        //key,value,如键值对，editor.putString(用户名，密码）;
+        //key,value
         editor.putString(userName, md5Psw)
-        //提交修改 editor.commit();
         editor.apply()
     }
 }
