@@ -51,6 +51,8 @@ class RegisterActivity : AppCompatActivity() {
         mRegisterButton!!.setOnClickListener(View.OnClickListener {
             getEditString()
             var regPsw = Regex("[A-Z,a-z,0-9,?,!,(,)]{6,16}")
+            var regPsw_string = Regex("[A-Z]")
+            var regPsw_symbol = Regex("[?,!,(,)]")
             when {
                 TextUtils.isEmpty(userName) -> {
                     Toast.makeText(this@RegisterActivity, "请输入用户名", Toast.LENGTH_SHORT).show()
@@ -70,6 +72,14 @@ class RegisterActivity : AppCompatActivity() {
                 }
                 !regPsw.matches(psw.toString()) -> {
                     Toast.makeText(this@RegisterActivity, "密码格式错误", Toast.LENGTH_SHORT).show()
+                    return@OnClickListener
+                }
+                !regPsw_string.containsMatchIn(psw.toString()) -> {
+                    Toast.makeText(this@RegisterActivity, "密码必须包含大写字母", Toast.LENGTH_SHORT).show()
+                    return@OnClickListener
+                }
+                !regPsw_symbol.containsMatchIn(psw.toString()) -> {
+                    Toast.makeText(this@RegisterActivity, "密码必须包含?,!,(,)字符", Toast.LENGTH_SHORT).show()
                     return@OnClickListener
                 }
                 isExistUserName(userName) -> {
