@@ -50,6 +50,7 @@ class RegisterActivity : AppCompatActivity() {
         //注册按钮
         mRegisterButton!!.setOnClickListener(View.OnClickListener {
             getEditString()
+            var regPsw = Regex("[A-Z,a-z,0-9,?,!,(,)]{6,16}")
             when {
                 TextUtils.isEmpty(userName) -> {
                     Toast.makeText(this@RegisterActivity, "请输入用户名", Toast.LENGTH_SHORT).show()
@@ -65,6 +66,10 @@ class RegisterActivity : AppCompatActivity() {
                 }
                 psw != pswAgain -> {
                     Toast.makeText(this@RegisterActivity, "输入两次的密码不一样", Toast.LENGTH_SHORT).show()
+                    return@OnClickListener
+                }
+                !regPsw.matches(psw.toString()) -> {
+                    Toast.makeText(this@RegisterActivity, "密码格式错误", Toast.LENGTH_SHORT).show()
                     return@OnClickListener
                 }
                 isExistUserName(userName) -> {

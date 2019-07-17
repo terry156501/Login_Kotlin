@@ -49,6 +49,8 @@ class LoginActivity : AppCompatActivity() {
             // 定义方法 readPsw为了读取用户名，得到密码
             spPsw = readPsw(userName)
             // 用户名为空
+            var regPsw = Regex("[A-Z,a-z,0-9,?,!,(,)]{6,16}")
+
             if (TextUtils.isEmpty(userName)) {
                 Toast.makeText(this@LoginActivity, "请输入用户名", Toast.LENGTH_SHORT).show()
                 return@OnClickListener
@@ -76,7 +78,12 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this@LoginActivity, "输入的用户名和密码不一致", Toast.LENGTH_SHORT).show()
                 return@OnClickListener
                 //用户名不存在
-            } else {
+            }
+            else if(!regPsw.matches(mKey.toString()))
+            {
+                Toast.makeText(this@LoginActivity, "密码格式错误", Toast.LENGTH_SHORT).show()
+            }
+            else {
                 Toast.makeText(this@LoginActivity, "此用户名不存在", Toast.LENGTH_SHORT).show()
             }
         })
