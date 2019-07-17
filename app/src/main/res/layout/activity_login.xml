@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textSize="35dp"
+            android:text="@string/login_text" />
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="50dp"
+                android:text="@string/username_text"
+                android:textSize="28dp" />
+
+        <EditText
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/input_user_text"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="5dp"
+                android:singleLine="true"
+                android:textSize="30dp"
+                android:hint="@string/input_user_text"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@+id/input_key_text"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="@string/key_text"
+                android:textSize="30dp" />
+
+        <EditText
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/input_key_text"
+                android:layout_marginLeft="5dp"
+                android:singleLine="true"
+                android:textSize="30dp"
+                android:password="true"
+                android:hint="@string/input_key_text"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/login_button"
+                android:layout_marginLeft="40dp"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:textSize="30dp"
+                android:text="@string/login_button"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/register_button"
+                android:layout_marginLeft="40dp"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:textSize="30dp"
+                android:text="@string/register_button" />
+
+    </LinearLayout>
+
+</LinearLayout>
