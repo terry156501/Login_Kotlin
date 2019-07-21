@@ -35,12 +35,12 @@ class RegisterActivity : AppCompatActivity() {
     }
     private fun init() {
 
-        mUser = findViewById<View>(R.id.input_identity_text) as EditText
-        mKey = findViewById<View>(R.id.input_password_text) as EditText
-        mKey02 = findViewById<View>(R.id.input_password02_text) as EditText
-        mPhone = findViewById<View>(R.id.input_phone_text) as EditText
-        mRegisterButton = findViewById<View>(R.id.register_button) as Button
-        mBack = findViewById<View>(R.id.back_button) as Button
+        mUser = findViewById(R.id.input_identity_text)
+        mKey = findViewById(R.id.input_password_text)
+        mKey02 = findViewById(R.id.input_password02_text)
+        mPhone = findViewById(R.id.input_phone_text)
+        mRegisterButton = findViewById(R.id.register_button)
+        mBack = findViewById(R.id.back_button)
 
         mBack!!.setOnClickListener {
             val intent = Intent(this@RegisterActivity,LoginActivity::class.java)
@@ -106,7 +106,6 @@ class RegisterActivity : AppCompatActivity() {
                     val data = Intent()
                     data.putExtra("userName", userName)
                     setResult(Activity.RESULT_OK, data)
-                    //RESULT_OK为Activity系统常量，状态码为-1，
                     this@RegisterActivity.finish()
                 }
             }

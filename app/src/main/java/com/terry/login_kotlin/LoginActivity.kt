@@ -7,15 +7,17 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import org.w3c.dom.Text
 
 
 class LoginActivity : AppCompatActivity() {
 
     private var mRegisterButton: Button? = null//注册按钮
     private var mLoginButton: Button? = null//登录按钮
-    private var mChange:Button? = null
+    private var mChange: TextView? = null
     private var mUser: EditText? = null
     private var mKey: EditText? = null
     private var userName:String? = null
@@ -30,9 +32,9 @@ class LoginActivity : AppCompatActivity() {
     private fun init() {
         mRegisterButton = findViewById(R.id.register_button)
         mLoginButton = findViewById(R.id.login_button)
+        mChange = findViewById(R.id.change_button)
         mUser = findViewById(R.id.input_user_text)
         mKey = findViewById(R.id.input_key_text)
-
 
         mRegisterButton!!.setOnClickListener{
             val intent = Intent(this@LoginActivity,RegisterActivity::class.java)
@@ -126,4 +128,5 @@ class LoginActivity : AppCompatActivity() {
     }
 
 }
+
 
