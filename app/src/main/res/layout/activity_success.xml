@@ -4,12 +4,18 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
-    <TextView
-            android:layout_width="wrap_content"
+    <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/log_success"
-            android:layout_gravity="center"
-            android:textSize="40dp"/>
+            android:orientation="vertical">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/log_success"
+                android:layout_gravity="center"
+                android:textSize="40dp"/>
+    </LinearLayout>
     <Button
             android:id="@+id/log_exit_button"
             android:layout_width="wrap_content"

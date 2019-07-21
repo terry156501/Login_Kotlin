@@ -3,7 +3,6 @@ package com.terry.login_kotlin
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
 import android.text.TextUtils
 import android.view.View
 import android.widget.Button
@@ -16,6 +15,7 @@ class LoginActivity : AppCompatActivity() {
 
     private var mRegisterButton: Button? = null//注册按钮
     private var mLoginButton: Button? = null//登录按钮
+    private var mChange:Button? = null
     private var mUser: EditText? = null
     private var mKey: EditText? = null
     private var userName:String? = null
@@ -39,18 +39,17 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        mLoginButton!!.setOnClickListener(View.OnClickListener {
-            //开始登录，获取用户名和密码
-            userName = mUser!!.text.toString().trim { it <= ' ' }
-            psw = mKey!!.text.toString().trim { it <= ' ' }
-            //对当前用户输入的密码进行MD5加密,psw 进行加密判断是否一致
-            val md5Psw = MD5Utils.md5(psw!!)
-            // md5Psw ; spPsw 为 根据从SharedPreferences中用户名读取密码
-            // 定义方法 readPsw为了读取用户名，得到密码
-            spPsw = readPsw(userName)
-            // 用户名为空
-            var regPsw = Regex("[A-Z,a-z,0-9,?,!,(,)]{6,16}")
+        mChange!!.setOnClickListener{
+            val intent = Intent(this@LoginActivity,ChangeKeyActivity::class.java)
+            startActivity(intent)
+        }
 
+        mLoginButton!!.setOnClickListener(View.OnClickListener {
+            getEditString()
+            val md5Psw = MD5Utils.md5(psw!!)
+            spPsw = readPsw(userName)
+            var regPsw = Regex("[A-Z,a-z,0-9,?,!,(,)]{6,16}")
+            // 用户名为空
             if (TextUtils.isEmpty(userName)) {
                 Toast.makeText(this@LoginActivity, "请输入用户名", Toast.LENGTH_SHORT).show()
                 return@OnClickListener
@@ -77,16 +76,20 @@ class LoginActivity : AppCompatActivity() {
             } else if (spPsw != null && !TextUtils.isEmpty(spPsw) && md5Psw != spPsw) {
                 Toast.makeText(this@LoginActivity, "输入的用户名和密码不一致", Toast.LENGTH_SHORT).show()
                 return@OnClickListener
-                //用户名不存在
             }
             else if(!regPsw.matches(mKey.toString()))
             {
                 Toast.makeText(this@LoginActivity, "密码格式错误", Toast.LENGTH_SHORT).show()
             }
+            //用户名不存在
             else {
                 Toast.makeText(this@LoginActivity, "此用户名不存在", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+    private fun getEditString() {
+        userName = mUser!!.text.toString().trim { it <= ' ' }
+        psw = mKey!!.text.toString().trim { it <= ' ' }
     }
     //读取输入的用户名，从SharePreference中找到与之匹配的密码并返回
     private fun readPsw(userName: String?): String? {
