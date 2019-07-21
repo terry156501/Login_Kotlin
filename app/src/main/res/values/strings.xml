@@ -17,11 +17,13 @@
     <string name="press_register_button">欢迎注册！</string>
 
     <string name="register_surface">用户注册</string>
-    <string name="identity_text">账 号:</string>
+    <string name="identity_text">账  号:</string>
     <string name="input_identity_text">用户名</string>
-    <string name="password_text">密 码:</string>
+    <string name="phone_text">手机号:</string>
+    <string name="input_phone_text">请输入手机号</string>
+    <string name="password_text">密  码:</string>
     <string name="input_password_text">密码</string>
-    <string name="password02_text">密 码:</string>
+    <string name="password02_text">密  码:</string>
     <string name="input_password02_text">请再次输入密码</string>
     <string name="surface2_register_button">注册</string>
     <string name="surface_back_button">返回</string>

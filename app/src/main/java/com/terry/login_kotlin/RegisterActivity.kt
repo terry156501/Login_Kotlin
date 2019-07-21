@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.util.regex.Pattern
 
 
 @SuppressLint("Registered")
@@ -19,27 +20,25 @@ class RegisterActivity : AppCompatActivity() {
     private var mRegisterButton: Button? = null//注册按钮
     private var mBack:Button? = null
     private var mUser: EditText? = null
+    private var mPhone: EditText? = null
     private var mKey: EditText? = null
     private var mKey02:EditText? = null
     private var userName:String? = null
     private var psw:String? = null
     private var pswAgain:String? = null
+    private var phoneNum:String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         init()
-        mUser = findViewById<View>(R.id.input_identity_text) as EditText
-        mKey = findViewById<View>(R.id.input_password_text) as EditText
-        mKey02 = findViewById<View>(R.id.input_password02_text) as EditText
-        mRegisterButton = findViewById<View>(R.id.register_button) as Button
-        mBack = findViewById<View>(R.id.back_button) as Button
     }
     private fun init() {
 
         mUser = findViewById<View>(R.id.input_identity_text) as EditText
         mKey = findViewById<View>(R.id.input_password_text) as EditText
         mKey02 = findViewById<View>(R.id.input_password02_text) as EditText
+        mPhone = findViewById<View>(R.id.input_phone_text) as EditText
         mRegisterButton = findViewById<View>(R.id.register_button) as Button
         mBack = findViewById<View>(R.id.back_button) as Button
 
@@ -53,9 +52,23 @@ class RegisterActivity : AppCompatActivity() {
             var regPsw = Regex("[A-Z,a-z,0-9,?,!,(,)]{6,16}")
             var regPsw_string = Regex("[A-Z]")
             var regPsw_symbol = Regex("[?,!,(,)]")
+            fun checkPhoneNum(num: String): Boolean{
+                val regExp = "^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(17[0,1,3,5,6,7,8]))\\d{8}\$"
+                val p = Pattern.compile(regExp)
+                val m = p.matcher(num)
+                return m.matches()
+            }
             when {
                 TextUtils.isEmpty(userName) -> {
                     Toast.makeText(this@RegisterActivity, "请输入用户名", Toast.LENGTH_SHORT).show()
+                    return@OnClickListener
+                }
+                TextUtils.isEmpty(phoneNum.toString()) -> {
+                    Toast.makeText(this@RegisterActivity, "请输入手机号", Toast.LENGTH_SHORT).show()
+                    return@OnClickListener
+                }
+                !checkPhoneNum(phoneNum.toString()) -> {
+                    Toast.makeText(this@RegisterActivity, "请输入正确的手机号", Toast.LENGTH_SHORT).show()
                     return@OnClickListener
                 }
                 TextUtils.isEmpty(psw) -> {
@@ -86,6 +99,7 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.makeText(this@RegisterActivity, "此账户名已经存在", Toast.LENGTH_SHORT).show()
                     return@OnClickListener
                 }
+
                 else -> {
                     Toast.makeText(this@RegisterActivity, "注册成功", Toast.LENGTH_SHORT).show()
                     saveRegisterInfo(userName, psw)
@@ -102,6 +116,8 @@ class RegisterActivity : AppCompatActivity() {
         userName = mUser!!.text.toString().trim { it <= ' ' }
         psw = mKey!!.text.toString().trim { it <= ' ' }
         pswAgain = mKey02!!.text.toString().trim { it <= ' ' }
+        phoneNum = mPhone!!.text.toString().trim{it <= ' '}
+
     }
 
     private fun isExistUserName(userName: String?): Boolean {
