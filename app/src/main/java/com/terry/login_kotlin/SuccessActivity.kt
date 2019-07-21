@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 
-@SuppressLint("Registered")
+@SuppressLint("Success")
 class SuccessActivity: AppCompatActivity() {
 
     private var mExit:Button? = null

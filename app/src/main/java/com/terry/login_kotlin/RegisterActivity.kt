@@ -42,6 +42,16 @@ class RegisterActivity : AppCompatActivity() {
         mRegisterButton = findViewById(R.id.register_button)
         mBack = findViewById(R.id.back_button)
 
+        var regPsw = Regex("[A-Z,a-z,0-9,?,!,(,)]{6,16}")
+        var regPsw_string = Regex("[A-Z]")
+        var regPsw_symbol = Regex("[?,!,(,)]")
+        fun checkPhoneNum(num: String): Boolean{
+            val regExp = "^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(17[0,1,3,5,6,7,8]))\\d{8}\$"
+            val p = Pattern.compile(regExp)
+            val m = p.matcher(num)
+            return m.matches()
+        }
+
         mBack!!.setOnClickListener {
             val intent = Intent(this@RegisterActivity,LoginActivity::class.java)
             startActivity(intent)
@@ -49,15 +59,7 @@ class RegisterActivity : AppCompatActivity() {
         //注册按钮
         mRegisterButton!!.setOnClickListener(View.OnClickListener {
             getEditString()
-            var regPsw = Regex("[A-Z,a-z,0-9,?,!,(,)]{6,16}")
-            var regPsw_string = Regex("[A-Z]")
-            var regPsw_symbol = Regex("[?,!,(,)]")
-            fun checkPhoneNum(num: String): Boolean{
-                val regExp = "^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(17[0,1,3,5,6,7,8]))\\d{8}\$"
-                val p = Pattern.compile(regExp)
-                val m = p.matcher(num)
-                return m.matches()
-            }
+
             when {
                 TextUtils.isEmpty(userName) -> {
                     Toast.makeText(this@RegisterActivity, "请输入用户名", Toast.LENGTH_SHORT).show()

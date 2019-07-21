@@ -35,6 +35,7 @@
     <string name="exit">退 出</string>
     <string name="reg_success">注册成功</string>
 
+    <string name="change_text">修改密码</string>
     <string name="change_key">密 码:</string>
     <string name="change_old">请输入旧密码</string>
     <string name="change_new">请输入新密码</string>

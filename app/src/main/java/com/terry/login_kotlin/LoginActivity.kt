@@ -1,5 +1,6 @@
 package com.terry.login_kotlin
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -10,9 +11,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import org.w3c.dom.Text
 
-
+@SuppressLint("Login")
 class LoginActivity : AppCompatActivity() {
 
     private var mRegisterButton: Button? = null//注册按钮
