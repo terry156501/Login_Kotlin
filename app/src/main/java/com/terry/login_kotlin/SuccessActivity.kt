@@ -8,7 +8,6 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
 
-
 @SuppressLint("Success")
 class SuccessActivity: AppCompatActivity() {
 

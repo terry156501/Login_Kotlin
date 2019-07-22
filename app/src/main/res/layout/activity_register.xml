@@ -35,7 +35,7 @@
                 android:singleLine="true"
                 android:hint="@string/input_user_text"
                 android:imeOptions="actionNext"
-                android:nextFocusForward="@string/input_password_text"/>
+                android:nextFocusForward="@id/input_phone_text"/>
     </LinearLayout>
 
     <LinearLayout
@@ -60,7 +60,7 @@
                 android:inputType="phone"
                 android:hint="@string/input_phone_text"
                 android:imeOptions="actionNext"
-                android:nextFocusForward="@string/password_text"/>
+                android:nextFocusForward="@id/input_password_text"/>
     </LinearLayout>
 
     <LinearLayout
@@ -85,7 +85,7 @@
                 android:password="true"
                 android:hint="@string/input_password_text"
                 android:imeOptions="actionNext"
-                android:nextFocusForward="@string/password02_text"/>
+                android:nextFocusForward="@id/input_password02_text"/>
     </LinearLayout>
 
     <LinearLayout
@@ -107,7 +107,9 @@
                 android:textSize="30dp"
                 android:singleLine="true"
                 android:password="true"
-                android:hint="@string/input_password02_text"/>
+                android:hint="@string/input_password02_text"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/register_button"/>
 
 
     </LinearLayout>

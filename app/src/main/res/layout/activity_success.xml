@@ -23,9 +23,4 @@
             android:text="@string/exit"
             android:layout_gravity="center"
             android:textSize="35dp"/>
-    <mehdi.sakout.fancybuttons.FancyButton
-            android:id="@+id/btn_preview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
 </LinearLayout>
