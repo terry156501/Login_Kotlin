@@ -5,10 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -22,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
     private var userName:String? = null
     private var psw:String? = null
     private var spPsw:String? = null
+    private var mCheck:CheckBox? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +32,15 @@ class LoginActivity : AppCompatActivity() {
         mChange = findViewById(R.id.change_button)
         mUser = findViewById(R.id.input_user_text)
         mKey = findViewById(R.id.input_key_text)
+        mCheck = findViewById(R.id.rem_psw)
+
+        val sp = getSharedPreferences("loginInfo", MODE_PRIVATE)
+        var checkstatus = mCheck
+        if(checkstatus!!.isChecked)
+        {
+            mUser!!.setText(sp.getString(userName,""))
+            mKey!!.setText(sp.getString(spPsw,""))
+        }
 
         mRegisterButton!!.setOnClickListener{
             val intent = Intent(this@LoginActivity,RegisterActivity::class.java)

@@ -65,17 +65,24 @@
                 android:nextFocusForward="@id/login_button"/>
 
     </LinearLayout>
-    <RelativeLayout
+    <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+        <CheckBox
+                android:id="@+id/rem_psw"
+                android:checked="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="@string/rem_psw"/>
         <TextView
                 android:id="@+id/change_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="@string/forget_key"
-                android:textSize="15dp"/>
-    </RelativeLayout>
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="150dp"
+                android:text="@string/forget_key"/>
+    </LinearLayout>
 
 
     <LinearLayout
