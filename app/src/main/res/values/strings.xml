@@ -13,25 +13,25 @@
 
     <string name="message1">账号或者密码不能为空</string>
     <string name="message2">保存成功</string>
-    
+
     //register
     <string name="register_surface">用户注册</string>
-    <string name="identity_text">账  号:</string>
+    <string name="identity_text">账 号:</string>
     <string name="input_identity_text">用户名</string>
     <string name="phone_text">手机号:</string>
     <string name="input_phone_text">请输入手机号</string>
-    <string name="password_text">密  码:</string>
+    <string name="password_text">密 码:</string>
     <string name="input_password_text">密码</string>
-    <string name="password02_text">密  码:</string>
+    <string name="password02_text">密 码:</string>
     <string name="input_password02_text">请再次输入密码</string>
     <string name="surface2_register_button">注册</string>
     <string name="surface_back_button">返回</string>
     <string name="register_message">注册成功!</string>
     <string name="surface2_message">不能为空!</string>
-    
+
     //success
     <string name="log_success">登陆成功!</string>
-    <string name="exit">退 出</string>
+    <string name="exit">确 认</string>
     <string name="reg_success">注册成功</string>
 
     //change
@@ -41,10 +41,15 @@
     <string name="change_new">请输入新密码</string>
     <string name="change_affirm_button">确认</string>
     <string name="change_back_button">返回</string>
-    
+
     //main
     <string name="main_information">Terry</string>
     <string name="main_message">消息</string>
     <string name="main_linkman">联系人</string>
-    <string name="main_personalhome">个人主页A2A2A2</string>
+    <string name="main_personalhome">个人主页</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="title_message">信息</string>
+    <string name="title_linkman">联系人</string>
+    <string name="title_personalhome">个人主页</string>
 </resources>

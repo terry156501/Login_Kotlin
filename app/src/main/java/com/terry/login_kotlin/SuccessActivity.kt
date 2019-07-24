@@ -23,7 +23,7 @@ class SuccessActivity: AppCompatActivity() {
         mExit = findViewById<View>(R.id.log_exit_button) as Button
 
         mExit!!.setOnClickListener {
-            val intent = Intent(this@SuccessActivity,LoginActivity::class.java)
+            val intent = Intent(this@SuccessActivity,MainActivity::class.java)
             startActivity(intent)
         }
     }
