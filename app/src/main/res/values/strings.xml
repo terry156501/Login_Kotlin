@@ -47,7 +47,6 @@
     <string name="main_message">消息</string>
     <string name="main_linkman">联系人</string>
     <string name="main_personalhome">个人主页</string>
-    <string name="title_activity_main">MainActivity</string>
 
     <string name="title_message">信息</string>
     <string name="title_linkman">联系人</string>
