@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/menu_message"
+            android:icon="@drawable/ic_question_answer_grey_400_24dp"
+            android:title="@string/main_message" />
+
+    <item
+            android:id="@+id/menu_linkman"
+            android:icon="@drawable/ic_supervisor_account_grey_400_24dp"
+            android:title="@string/main_linkman" />
+
+    <item
+            android:id="@+id/menu_personalhome"
+            android:icon="@drawable/ic_perm_identity_grey_400_24dp"
+            android:title="@string/main_personalhome" />
+
+</menu>
