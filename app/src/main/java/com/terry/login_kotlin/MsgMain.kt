@@ -27,9 +27,9 @@ class MsgMain : AppCompatActivity() {
 
         initMsgs()
         adapter = MsgAdapter(this@MsgMain, R.layout.msg_send, msgList)
-        inputText = findViewById(R.id.input_text) as EditText
-        send = findViewById(R.id.send) as Button
-        msgListView = findViewById(R.id.msg_list_view) as ListView
+        inputText = findViewById<EditText>(R.id.input_text)
+        send = findViewById<Button>(R.id.send)
+        msgListView = findViewById<ListView>(R.id.msg_list_view)
         msgListView!!.adapter = adapter
         send!!.setOnClickListener {
             val content = inputText!!.text.toString()
