@@ -35,11 +35,12 @@ class LoginActivity : AppCompatActivity() {
         mCheck = findViewById(R.id.rem_psw)
 
         val sp = getSharedPreferences("loginInfo", MODE_PRIVATE)
+        val editor = sp.edit()
         var checkstatus = mCheck
         if(checkstatus!!.isChecked)
         {
-            mUser!!.setText(sp.getString(userName,""))
-            mKey!!.setText(sp.getString(spPsw,""))
+            editor.putString("username",mUser!!.text.toString().trim())
+            editor.putString("password",mKey!!.text.toString().trim())
         }
 
         mRegisterButton!!.setOnClickListener{
