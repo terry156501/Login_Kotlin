@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.terry.login_kotlin.view.LoginTestActivity
 import java.util.regex.Pattern
 
 
@@ -53,7 +54,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         mBack!!.setOnClickListener {
-            val intent = Intent(this@RegisterActivity,LoginActivity::class.java)
+            val intent = Intent(this@RegisterActivity, LoginTestActivity::class.java)
             startActivity(intent)
         }
         //注册按钮

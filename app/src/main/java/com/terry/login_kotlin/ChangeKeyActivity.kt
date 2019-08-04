@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.terry.login_kotlin.view.LoginTestActivity
 
 @SuppressLint("Changed")
 class ChangeKeyActivity: AppCompatActivity() {
@@ -39,7 +40,7 @@ class ChangeKeyActivity: AppCompatActivity() {
         val regPsw = Regex("[A-Z,a-z,0-9,?,!,(,)]{6,16}")
 
         mBack!!.setOnClickListener {
-            val intent = Intent(this@ChangeKeyActivity,LoginActivity::class.java)
+            val intent = Intent(this@ChangeKeyActivity, LoginTestActivity::class.java)
             startActivity(intent)
         }
 
@@ -67,7 +68,7 @@ class ChangeKeyActivity: AppCompatActivity() {
                 data.putExtra("userName", userName)
                 setResult(Activity.RESULT_OK, data)
                 this@ChangeKeyActivity.finish()
-                val intent = Intent(this@ChangeKeyActivity,LoginActivity::class.java)
+                val intent = Intent(this@ChangeKeyActivity, LoginActivity::class.java)
                 startActivity(intent)
             }else{
                 Toast.makeText(this@ChangeKeyActivity, "此用户名不存在", Toast.LENGTH_SHORT).show()

@@ -13,7 +13,7 @@
                 android:name=".MainActivity"
                 android:label="@string/app_name">
         </activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".view.LoginTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
