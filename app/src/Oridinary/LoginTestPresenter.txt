@@ -1,0 +1,58 @@
+package com.terry.login_kotlin.presenter
+
+import com.terry.login_kotlin.contract.ILoginTestContract
+import com.terry.login_kotlin.model.LoginTestModel
+import com.terry.login_kotlin.view.LoginTestActivity
+
+/**
+ * @describe
+ * @author  Terry
+ * @date 2019/8/3  16:02
+ * 								 - generate by MvpAutoCodePlus plugin.
+ */
+
+class LoginTestPresenter(loginView:LoginTestActivity) : BasePresenterImpl<ILoginTestContract.View, ILoginTestContract.Model>(),
+    ILoginTestContract.Presenter {
+    private var loginView:LoginTestActivity? = null
+    private var model:LoginTestModel? = null
+    init {
+        model = LoginTestModel()
+        this.loginView = loginView
+    }
+    override fun onEmptyUser() {
+        loginView?.setEmptyUser()
+        return
+    }
+
+    override fun onEmptyPsw() {
+        loginView?.setEmptyPsw()
+        return
+    }
+
+    override fun onPswError() {
+        loginView?.setPswError()
+        return
+    }
+
+    override fun onUnExUser() {
+        loginView?.setUnExUser()
+        return
+    }
+
+    override fun onWrongPsw() {
+        loginView?.setWrongPsw()
+        return
+    }
+
+    override fun onSuccess() {
+        loginView?.Success()
+        return
+    }
+
+    override fun login(username:String,psw:String) {
+        model = LoginTestModel()
+        model?.checkPsw(username,psw)
+    }
+
+}
+
