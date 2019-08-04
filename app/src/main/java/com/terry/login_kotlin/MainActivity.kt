@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.terry.login_kotlin.Fragments.Fragment_01
+import com.terry.login_kotlin.Fragments.Fragment_02
+import com.terry.login_kotlin.Fragments.Fragment_03
 
 class MainActivity : AppCompatActivity() {
     private var bottomNavigationView: BottomNavigationView? = null

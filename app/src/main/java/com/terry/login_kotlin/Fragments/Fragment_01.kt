@@ -1,14 +1,14 @@
-package com.terry.login_kotlin
+package com.terry.login_kotlin.Fragments
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.terry.login_kotlin.MsgMain
+import com.terry.login_kotlin.R
 
 class Fragment_01 : Fragment() {
     private var textView: TextView? = null
@@ -20,7 +20,7 @@ class Fragment_01 : Fragment() {
         super.onActivityCreated(savedInstanceState)
         textView = activity!!.findViewById(R.id.msg_f) as TextView
         textView!!.setOnClickListener {
-            val intent = Intent(activity,MsgMain::class.java)
+            val intent = Intent(activity, MsgMain::class.java)
             startActivity(intent)
         }
     }

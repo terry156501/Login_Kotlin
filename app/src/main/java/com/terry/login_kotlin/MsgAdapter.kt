@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 
@@ -22,6 +23,8 @@ class MsgAdapter(context: Context, private val resourceId: Int, objects: List<Ms
             viewHolder.rightLayout = view.findViewById<View>(R.id.right_layout) as LinearLayout
             viewHolder.leftMsg = view.findViewById<View>(R.id.left_msg) as TextView
             viewHolder.rightMsg = view.findViewById<View>(R.id.right_msg) as TextView
+            viewHolder.head1 = view.findViewById<View>(R.id.head_01) as ImageView
+            viewHolder.head2 = view.findViewById<View>(R.id.head_02) as ImageView
             view.tag = viewHolder
         } else {
             view = convertView
@@ -29,11 +32,15 @@ class MsgAdapter(context: Context, private val resourceId: Int, objects: List<Ms
         }
         if (msg!!.type == Msg.TYPE_RECEIVED) {
             viewHolder.leftLayout!!.visibility = View.VISIBLE
+            viewHolder.head1!!.visibility = View.VISIBLE
             viewHolder.rightLayout!!.visibility = View.GONE
+            viewHolder.head2!!.visibility = View.GONE
             viewHolder.leftMsg!!.text = msg.content
         } else if (msg.type == Msg.TYPE_SEND) {
             viewHolder.rightLayout!!.visibility = View.VISIBLE
+            viewHolder.head2!!.visibility = View.VISIBLE
             viewHolder.leftLayout!!.visibility = View.GONE
+            viewHolder.head1!!.visibility = View.GONE
             viewHolder.rightMsg!!.text = msg.content
         }
         return view
@@ -44,5 +51,7 @@ class MsgAdapter(context: Context, private val resourceId: Int, objects: List<Ms
         var rightLayout: LinearLayout? = null
         var leftMsg: TextView? = null
         var rightMsg: TextView? = null
+        var head1: ImageView? = null
+        var head2: ImageView? = null
     }
 }

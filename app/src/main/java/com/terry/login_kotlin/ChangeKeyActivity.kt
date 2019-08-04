@@ -68,7 +68,7 @@ class ChangeKeyActivity: AppCompatActivity() {
                 data.putExtra("userName", userName)
                 setResult(Activity.RESULT_OK, data)
                 this@ChangeKeyActivity.finish()
-                val intent = Intent(this@ChangeKeyActivity, LoginActivity::class.java)
+                val intent = Intent(this@ChangeKeyActivity, LoginTestActivity::class.java)
                 startActivity(intent)
             }else{
                 Toast.makeText(this@ChangeKeyActivity, "此用户名不存在", Toast.LENGTH_SHORT).show()

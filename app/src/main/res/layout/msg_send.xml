@@ -6,36 +6,58 @@
               android:padding="10dp">
 
     <LinearLayout
-            android:id="@+id/left_layout"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_gravity="left"
-            android:background="@drawable/msg_left">
-
-        <TextView
-                android:id="@+id/left_msg"
-                android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <ImageView
+                android:id="@+id/head_01"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="left"
+                android:src="@drawable/ic_face_black_24dp"/>
+        <LinearLayout
+                android:id="@+id/left_layout"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:textColor="#fff"/>
+                android:layout_width="wrap_content"
+                android:layout_gravity="left"
+                android:background="@drawable/left_messages">
+            <TextView
+                    android:id="@+id/left_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:textColor="#fff"/>
 
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-            android:id="@+id/right_layout"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:background="@drawable/msg_right">
-
-        <TextView
-                android:id="@+id/right_msg"
-                android:layout_width="wrap_content"
+            android:orientation="horizontal">
+        <LinearLayout
+                android:id="@+id/right_layout"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"/>
+                android:layout_width="wrap_content"
+                android:layout_gravity="right"
+                android:background="@drawable/right_messages">
 
+            <TextView
+                    android:id="@+id/right_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"/>
+        </LinearLayout>
+        <ImageView
+                android:id="@+id/head_02"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_face_black_24dp"/>
     </LinearLayout>
+
 
 </LinearLayout>
