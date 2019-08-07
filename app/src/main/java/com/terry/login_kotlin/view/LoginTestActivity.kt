@@ -4,9 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.terry.login_kotlin.ChangeKeyActivity
 import com.terry.login_kotlin.R
-import com.terry.login_kotlin.RegisterActivity
 import com.terry.login_kotlin.SuccessActivity
 import com.terry.login_kotlin.contract.ILoginTestContract
 import com.terry.login_kotlin.act.BaseMVPActivity
