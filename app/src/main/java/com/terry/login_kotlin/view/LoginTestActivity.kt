@@ -23,8 +23,6 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginTestActivity : BaseMVPActivity<ILoginTestContract.View, ILoginTestContract.Presenter>(),
     ILoginTestContract.View, View.OnClickListener {
 
-
-
     private var presenter:LoginTestPresenter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -84,6 +82,6 @@ class LoginTestActivity : BaseMVPActivity<ILoginTestContract.View, ILoginTestCon
     }
 
     override fun login() {
-        presenter?.login(input_user_text.text.toString(),input_key_text.text.toString())
+        presenter?.login(input_user_text.text.toString(),input_key_text.text.toString(),this)
     }
 }

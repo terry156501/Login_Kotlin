@@ -43,9 +43,7 @@ class RegisterActivity : AppCompatActivity() {
         mRegisterButton = findViewById(R.id.register_button)
         mBack = findViewById(R.id.back_button)
 
-        var regPsw = Regex("[A-Z,a-z,0-9,?,!,(,)]{6,16}")
-        var regPsw_string = Regex("[A-Z]")
-        var regPsw_symbol = Regex("[?,!,(,)]")
+        var regPsw = Regex("[a-z,0-9]{6,16}")
         fun checkPhoneNum(num: String): Boolean{
             val regExp = "^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(17[0,1,3,5,6,7,8]))\\d{8}\$"
             val p = Pattern.compile(regExp)
@@ -88,14 +86,6 @@ class RegisterActivity : AppCompatActivity() {
                 }
                 !regPsw.matches(psw.toString()) -> {
                     Toast.makeText(this@RegisterActivity, "密码格式错误", Toast.LENGTH_SHORT).show()
-                    return@OnClickListener
-                }
-                !regPsw_string.containsMatchIn(psw.toString()) -> {
-                    Toast.makeText(this@RegisterActivity, "密码必须包含大写字母", Toast.LENGTH_SHORT).show()
-                    return@OnClickListener
-                }
-                !regPsw_symbol.containsMatchIn(psw.toString()) -> {
-                    Toast.makeText(this@RegisterActivity, "密码必须包含?,!,(,)字符", Toast.LENGTH_SHORT).show()
                     return@OnClickListener
                 }
                 isExistUserName(userName) -> {

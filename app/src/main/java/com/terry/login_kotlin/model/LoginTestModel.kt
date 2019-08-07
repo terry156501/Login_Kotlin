@@ -18,12 +18,12 @@ import kotlinx.android.synthetic.main.activity_login.*
  */
 
 @SuppressLint("Registered")
-class LoginTestModel : BaseModelImpl(), ILoginTestContract.Model {
+class LoginTestModel : BaseModelImpl() {
 
     private var listener:LoginTestPresenter? = null
     private var spPsw:String? = null
 
-    override fun checkPsw(username: String, password: String) {
+    fun checkPsw(username: String, password: String) {
         val regPsw = Regex("[A-Z,a-z,0-9,?,!,(,)]{6,16}")
         val md5Psw = MD5Utils.md5(password)
         listener = LoginTestPresenter(LoginTestActivity())
@@ -60,7 +60,6 @@ class LoginTestModel : BaseModelImpl(), ILoginTestContract.Model {
     }
 
     private fun readPsw(username: String?): String? {
-
         val sp = getSharedPreferences("loginInfo", MODE_PRIVATE)
         return sp.getString(username,"")
     }
