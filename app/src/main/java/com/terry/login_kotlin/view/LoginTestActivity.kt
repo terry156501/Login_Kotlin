@@ -23,67 +23,61 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginTestActivity : BaseMVPActivity<ILoginTestContract.View, ILoginTestContract.Presenter>(),
     ILoginTestContract.View, View.OnClickListener {
 
-
-
-    private var presenter:LoginTestPresenter? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        presenter = LoginTestPresenter(this)
         login_button.setOnClickListener(this)
         register_button.setOnClickListener(this)
         change_button.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
+        var presenter = LoginTestPresenter(this)
         when(p0?.id)
         {
-            R.id.login_button -> login()
+            R.id.login_button -> presenter.login(input_user_text.text.toString(),input_key_text.text.toString(),this)
             R.id.register_button -> Reg()
             R.id.change_button -> Change()
         }
     }
 
 
-    override fun setEmptyUser() {
+    fun setEmptyUser() {
         Toast.makeText(this@LoginTestActivity, "请输入用户名", Toast.LENGTH_SHORT).show()
     }
 
-    override fun setEmptyPsw() {
+    fun setEmptyPsw() {
         Toast.makeText(this@LoginTestActivity, "请输入密码", Toast.LENGTH_SHORT).show()
     }
 
-    override fun setWrongPsw() {
+    fun setWrongPsw() {
         Toast.makeText(this@LoginTestActivity, "输入的用户名和密码不一致", Toast.LENGTH_SHORT).show()
     }
 
-    override fun setUnExUser() {
+    fun setUnExUser() {
         Toast.makeText(this@LoginTestActivity, "此用户名不存在", Toast.LENGTH_SHORT).show()
     }
 
-    override fun setPswError() {
+    fun setPswError() {
         Toast.makeText(this@LoginTestActivity, "密码格式错误", Toast.LENGTH_SHORT).show()
     }
 
-    override fun Success() {
+    fun Success() {
         this@LoginTestActivity.finish()
-        startActivity(Intent(this@LoginTestActivity, SuccessActivity::class.java))
-    }
-
-    override fun Reg() {
-        this@LoginTestActivity.finish()
-        val intent = Intent(this@LoginTestActivity, RegisterActivity::class.java)
+        var intent = Intent(this@LoginTestActivity, SuccessActivity::class.java)
         startActivity(intent)
     }
 
-    override fun Change() {
+    fun Reg() {
         this@LoginTestActivity.finish()
-        val intent = Intent(this@LoginTestActivity,ChangeKeyActivity::class.java)
+        val intent = Intent(this@LoginTestActivity, RegisterTestActivity::class.java)
         startActivity(intent)
     }
 
-    override fun login() {
-        presenter?.login(input_user_text.text.toString(),input_key_text.text.toString())
+    fun Change() {
+        this@LoginTestActivity.finish()
+        val intent = Intent(this@LoginTestActivity,ChangeKeyTestActivity::class.java)
+        startActivity(intent)
     }
+
 }

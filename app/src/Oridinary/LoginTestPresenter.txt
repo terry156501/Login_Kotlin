@@ -1,58 +1,31 @@
-package com.terry.login_kotlin.presenter
-
-import com.terry.login_kotlin.contract.ILoginTestContract
-import com.terry.login_kotlin.model.LoginTestModel
-import com.terry.login_kotlin.view.LoginTestActivity
-
-/**
- * @describe
- * @author  Terry
- * @date 2019/8/3  16:02
- * 								 - generate by MvpAutoCodePlus plugin.
- */
-
-class LoginTestPresenter(loginView:LoginTestActivity) : BasePresenterImpl<ILoginTestContract.View, ILoginTestContract.Model>(),
-    ILoginTestContract.Presenter {
-    private var loginView:LoginTestActivity? = null
-    private var model:LoginTestModel? = null
-    init {
-        model = LoginTestModel()
-        this.loginView = loginView
-    }
-    override fun onEmptyUser() {
-        loginView?.setEmptyUser()
-        return
-    }
-
-    override fun onEmptyPsw() {
-        loginView?.setEmptyPsw()
-        return
-    }
-
-    override fun onPswError() {
-        loginView?.setPswError()
-        return
-    }
-
-    override fun onUnExUser() {
-        loginView?.setUnExUser()
-        return
-    }
-
-    override fun onWrongPsw() {
-        loginView?.setWrongPsw()
-        return
-    }
-
-    override fun onSuccess() {
-        loginView?.Success()
-        return
-    }
-
-    override fun login(username:String,psw:String) {
-        model = LoginTestModel()
-        model?.checkPsw(username,psw)
-    }
-
-}
-
+val regPsw = Regex("[a-z,0-9]{6,16}")
+        val md5Psw = MD5Utils.md5(psw)
+        val spPsw = readPsw(username,context)
+        if(TextUtils.isEmpty(username))
+        {
+            onEmptyUser()
+        }
+        else if(TextUtils.isEmpty(psw))
+        {
+            onEmptyPsw()
+        }
+        else if(md5Psw == spPsw)
+        {
+            saveLoginStatus(true, username,context)
+            val data = Intent()
+            data.putExtra("isLogin", true)
+            setResult(Activity.RESULT_OK, data)
+            onSuccess()
+        }
+        else if(spPsw != null && !TextUtils.isEmpty(spPsw) && md5Psw != spPsw)
+        {
+            onWrongPsw()
+        }
+        else if(!regPsw.matches(psw))
+        {
+            onPswError()
+        }
+        else
+        {
+            onUnExUser()
+        }

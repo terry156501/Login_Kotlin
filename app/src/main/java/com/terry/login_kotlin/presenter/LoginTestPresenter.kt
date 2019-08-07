@@ -1,8 +1,12 @@
 package com.terry.login_kotlin.presenter
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.text.TextUtils
+import com.terry.login_kotlin.MD5Utils
 import com.terry.login_kotlin.contract.ILoginTestContract
-import com.terry.login_kotlin.model.LoginTestModel
 import com.terry.login_kotlin.view.LoginTestActivity
 
 /**
@@ -13,38 +17,78 @@ import com.terry.login_kotlin.view.LoginTestActivity
  */
 
 @SuppressLint("Registered")
-class LoginTestPresenter(private var loginView:LoginTestActivity) : BasePresenterImpl<ILoginTestContract.View, ILoginTestContract.Model>(),
-    ILoginTestContract.Presenter {
-    private var model:LoginTestModel? = null
+class LoginTestPresenter(private var loginView:LoginTestActivity) : BasePresenterImpl<ILoginTestContract.View, ILoginTestContract.Model>() {
 
-    override fun onEmptyUser() {
+    fun onEmptyUser() {
         loginView.setEmptyUser()
     }
 
-    override fun onEmptyPsw() {
+    fun onEmptyPsw() {
         loginView.setEmptyPsw()
     }
 
-    override fun onPswError() {
+    fun onPswError() {
         loginView.setPswError()
     }
 
-    override fun onUnExUser() {
+    fun onUnExUser() {
         loginView.setUnExUser()
     }
 
-    override fun onWrongPsw() {
+    fun onWrongPsw() {
         loginView.setWrongPsw()
     }
 
-    override fun onSuccess() {
+    fun onSuccess() {
         loginView.Success()
     }
 
-    override fun login(username:String,psw:String) {
-        model = LoginTestModel()
-        model?.checkPsw(username,psw)
+    fun login(username:String,psw:String,context: Context) {
+        val regPsw = Regex("[a-z,0-9]{6,16}")
+        val md5Psw = MD5Utils.md5(psw)
+        val spPsw = readPsw(username,context)
+        if(TextUtils.isEmpty(username))
+        {
+            onEmptyUser()
+        }
+        else if(TextUtils.isEmpty(psw))
+        {
+            onEmptyPsw()
+        }
+        else if(md5Psw == spPsw)
+        {
+            saveLoginStatus(true, username,context)
+            val data = Intent()
+            data.putExtra("isLogin", true)
+            setResult(Activity.RESULT_OK, data)
+            onSuccess()
+        }
+        else if(spPsw != null && !TextUtils.isEmpty(spPsw) && md5Psw != spPsw)
+        {
+            onWrongPsw()
+        }
+        else if(!regPsw.matches(psw))
+        {
+            onPswError()
+        }
+        else
+        {
+            onUnExUser()
+        }
     }
 
+    private fun readPsw(username: String?,context: Context): String? {
+        val sp = context.getSharedPreferences("loginInfo", MODE_PRIVATE)
+        return sp.getString(username,"")
+    }
+
+    private fun saveLoginStatus(status: Boolean, userName: String?,context: Context) {
+        val sp = context.getSharedPreferences("loginInfo", MODE_PRIVATE)
+        val editor = sp.edit()
+        editor.putBoolean("isLogin", status)
+        //存入登录状态时的用户名
+        editor.putString("loginUserName", userName)
+        editor.apply()
+    }
 }
 

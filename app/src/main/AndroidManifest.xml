@@ -20,9 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".view.RegisterTestActivity"/>
         <activity android:name=".SuccessActivity"/>
-        <activity android:name=".ChangeKeyActivity"/>
+        <activity android:name=".view.ChangeKeyTestActivity"/>
         <activity android:name=".MsgMain"/>
     </application>
 
