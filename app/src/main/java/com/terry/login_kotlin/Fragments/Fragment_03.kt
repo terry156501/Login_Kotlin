@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.terry.login_kotlin.LoginActivity
 import com.terry.login_kotlin.R
+import com.terry.login_kotlin.view.LoginTestActivity
 
 
 class Fragment_03 : Fragment() {
@@ -24,7 +25,7 @@ class Fragment_03 : Fragment() {
         textView = activity!!.findViewById(R.id.textView1) as TextView
         mbutton = activity!!.findViewById(R.id.log_off) as Button
         mbutton!!.setOnClickListener {
-            val intent = Intent(activity, LoginActivity::class.java)
+            val intent = Intent(activity, LoginTestActivity::class.java)
             startActivity(intent)
         }
     }

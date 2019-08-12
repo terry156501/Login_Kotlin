@@ -16,33 +16,33 @@ class MainActivity : AppCompatActivity() {
     private var fragment2: Fragment_02? = null
     private var fragment3: Fragment_03? = null
     private var fragments: Array<Fragment>? = null
-    private var lastfragment: Int = 0//用于记录上个选择的Fragment
+    private var lastFragment: Int = 0//用于记录上个选择的Fragment
     //判断选择的菜单
     private val changeFragment =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_message -> {
-                    if (lastfragment != 0) {
-                        switchFragment(lastfragment, 0)
-                        lastfragment = 0
+                    if (lastFragment != 0) {
+                        switchFragment(lastFragment, 0)
+                        lastFragment = 0
 
                     }
 
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.menu_linkman -> {
-                    if (lastfragment != 1) {
-                        switchFragment(lastfragment, 1)
-                        lastfragment = 1
+                    if (lastFragment != 1) {
+                        switchFragment(lastFragment, 1)
+                        lastFragment = 1
 
                     }
 
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.menu_personalhome -> {
-                    if (lastfragment != 2) {
-                        switchFragment(lastfragment, 2)
-                        lastfragment = 2
+                    if (lastFragment != 2) {
+                        switchFragment(lastFragment, 2)
+                        lastFragment = 2
 
                     }
 
@@ -67,18 +67,18 @@ class MainActivity : AppCompatActivity() {
         fragment2 = Fragment_02()
         fragment3 = Fragment_03()
         fragments = arrayOf(fragment1!!, fragment2!!, fragment3!!)
-        lastfragment = 0
+        lastFragment = 0
         supportFragmentManager.beginTransaction().replace(R.id.content, fragment1!!).show(fragment1!!).commit()
-        bottomNavigationView = findViewById(R.id.nav_view) as BottomNavigationView
+        bottomNavigationView = findViewById<BottomNavigationView>(R.id.nav_view)
 
         bottomNavigationView!!.setOnNavigationItemSelectedListener(changeFragment)
     }
 
     //切换Fragment
-    private fun switchFragment(lastfragment: Int, index: Int) {
+    private fun switchFragment(lastFragment: Int, index: Int) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.hide(fragments!![lastfragment])//隐藏上个Fragment
-        if (fragments!![index].isAdded == false) {
+        transaction.hide(fragments!![lastFragment])//隐藏上个Fragment
+        if (!fragments!![index].isAdded) {
             transaction.add(R.id.content, fragments!![index])
 
 

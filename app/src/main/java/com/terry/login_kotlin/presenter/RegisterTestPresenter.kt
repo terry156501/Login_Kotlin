@@ -67,13 +67,14 @@ class RegisterTestPresenter(private var registerView:RegisterTestActivity) : Bas
     fun register(username:String, phone: EditText, password_01:String, password_02:String, context: Context)
     {
         val regPsw = Regex("[a-z,0-9]{6,16}")
+        var phoneNum = phone.text.toString()
         if(TextUtils.isEmpty(username)){
             onEmptyUser()
         }
         else if(TextUtils.isEmpty(phone.toString())){
             onEmptyPhone()
         }
-        else if(!checkPhoneNum(phone.toString())){
+        else if(!checkPhoneNum(phoneNum)){
             onWrongPhone()
         }
         else if(TextUtils.isEmpty(password_01)){

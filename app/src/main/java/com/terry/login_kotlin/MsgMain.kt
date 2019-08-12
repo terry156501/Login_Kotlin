@@ -26,7 +26,7 @@ class MsgMain : AppCompatActivity() {
         setContentView(R.layout.message)
 
         initMsgs()
-        adapter = MsgAdapter(this@MsgMain, R.layout.msg_send, msgList)
+        adapter = MsgAdapter(this@MsgMain, R.layout.msg_send, msgList as List<Msg>)
         inputText = findViewById<EditText>(R.id.input_text)
         send = findViewById<Button>(R.id.send)
         msgListView = findViewById<ListView>(R.id.msg_list_view)
