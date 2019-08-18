@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.terry.login_kotlin.LoginActivity
 import com.terry.login_kotlin.R
 import com.terry.login_kotlin.view.LoginTestActivity
 
