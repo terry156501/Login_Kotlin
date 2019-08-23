@@ -1,0 +1,4 @@
+inner class ContactHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
+        internal var mTextView: TextView = view.findViewById(R.id.contact_name)
+
+    }
