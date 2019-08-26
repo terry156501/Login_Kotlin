@@ -39,8 +39,8 @@ class Fragment_02 : Fragment() {
             "李云", "焦挺", "石勇", "孙新", "顾大嫂", "张青", "孙二娘", " 王定六", "郁保四", "白胜",
             "时迁", "段景柱"
         )
-        contactList = activity!!.findViewById<RecyclerView>(R.id.contact_list)
-        letterView = activity!!.findViewById<LinkManList>(R.id.letter_view)
+        contactList = activity!!.findViewById(R.id.contact_list)
+        letterView = activity!!.findViewById(R.id.letter_view)
         layoutManager = LinearLayoutManager(this.activity)
         adapter = ContactAdapter(this, contactNames!!)
 

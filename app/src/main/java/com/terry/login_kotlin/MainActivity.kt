@@ -9,6 +9,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.terry.login_kotlin.Fragments.Fragment_01
 import com.terry.login_kotlin.Fragments.Fragment_02
 import com.terry.login_kotlin.Fragments.Fragment_03
+import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
     private var bottomNavigationView: BottomNavigationView? = null
@@ -85,6 +86,6 @@ class MainActivity : AppCompatActivity() {
         }
         transaction.show(fragments!![index]).commitAllowingStateLoss()
 
-
     }
+
 }
