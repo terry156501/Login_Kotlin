@@ -13,6 +13,7 @@ class Img_01Activity:AppCompatActivity() {
         mButton = findViewById(R.id.img_01_button)
         mButton!!.setOnClickListener{
             val intent = Intent(this@Img_01Activity,MainActivity::class.java)
+            intent.putExtra("Fragment","2")
             startActivity(intent)
         }
     }

@@ -14,6 +14,7 @@ class Rich_01Activity:AppCompatActivity() {
         mButton = findViewById(R.id.rich_01_button)
         mButton!!.setOnClickListener{
             val intent = Intent(this@Rich_01Activity, MainActivity::class.java)
+            intent.putExtra("Fragment",2)
             startActivity(intent)
         }
     }

@@ -1,5 +1,7 @@
 package com.terry.login_kotlin
 
+import android.annotation.SuppressLint
+import android.app.PendingIntent.getActivity
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,6 +14,7 @@ import me.drakeet.multitype.ItemViewBinder
 
 class ImageItemViewBinder: ItemViewBinder<ImageItem, ImageItemViewBinder.ViewHolder>() {
 
+    @SuppressLint("WrongConstant")
     override fun onCreateViewHolder(inflater: LayoutInflater, parent: ViewGroup): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.img_item,parent ,false)
