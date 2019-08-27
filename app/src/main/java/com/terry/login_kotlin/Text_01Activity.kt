@@ -13,6 +13,7 @@ class Text_01Activity:AppCompatActivity() {
         mButton = findViewById(R.id.text_01_button)
         mButton!!.setOnClickListener{
             val intent = Intent(this@Text_01Activity,MainActivity::class.java)
+            intent.putExtra("Fragment",2)
             startActivity(intent)
         }
     }

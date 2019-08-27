@@ -28,6 +28,11 @@ class RichItemViewBinder: ItemViewBinder<RichItem, ViewHolder>() {
             val intent = Intent(it.context, Rich_01Activity::class.java)
             it.context.startActivity(intent)
         }
+        holder.view.setOnClickListener {
+            Toast.makeText(it.context, "RichView_View" , Toast.LENGTH_SHORT).show()
+            val intent = Intent(it.context, Rich_01Activity::class.java)
+            it.context.startActivity(intent)
+        }
         return holder
     }
 
@@ -42,11 +47,17 @@ class RichItemViewBinder: ItemViewBinder<RichItem, ViewHolder>() {
         Log.d("ItemViewBinder API", "items: $adapterItems")
         Log.d("ItemViewBinder API", "adapter: $adapter")
         Log.d("More", "Context: ${holder.itemView.context}")
+        holder.view = item.view
+        Log.d("ItemViewBinder API", "position: ${getPosition(holder)}")
+        Log.d("ItemViewBinder API", "items: $adapterItems")
+        Log.d("ItemViewBinder API", "adapter: $adapter")
+        Log.d("More", "Context: ${holder.itemView.context}")
     }
 
     class ViewHolder(itemView : View): RecyclerView.ViewHolder(itemView) {
         val text: TextView = itemView.findViewById(R.id.rich_text)
         val img: ImageView = itemView.findViewById(R.id.rich_img)
+        var view:View = itemView.findViewById(R.id.rich_view)
     }
 
 }
