@@ -36,6 +36,8 @@
         <activity android:name=".Img_01Activity"/>
         <activity android:name=".Text_01Activity"/>
         <activity android:name=".Rich_01Activity"/>
+        <activity android:name=".Rich_igon_01Activity"/>
+        <activity android:name=".Rich_hp_01Activity"/>
     </application>
 
 </manifest>

@@ -10,10 +10,10 @@ class Rich_01Activity:AppCompatActivity() {
     private var mButton:Button? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.page_03)
+        setContentView(R.layout.rich_01)
         mButton = findViewById(R.id.rich_01_button)
         mButton!!.setOnClickListener{
-            val intent = Intent(this@Rich_01Activity, Fragment_03::class.java)
+            val intent = Intent(this@Rich_01Activity, MainActivity::class.java)
             startActivity(intent)
         }
     }

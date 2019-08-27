@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
         fragments = arrayOf(fragment1!!, fragment2!!, fragment3!!)
         lastFragment = 0
         supportFragmentManager.beginTransaction().replace(R.id.content, fragment1!!).show(fragment1!!).commit()
-        bottomNavigationView = findViewById<BottomNavigationView>(R.id.nav_view)
+        bottomNavigationView = findViewById(R.id.nav_view)
 
         bottomNavigationView!!.setOnNavigationItemSelectedListener(changeFragment)
     }
