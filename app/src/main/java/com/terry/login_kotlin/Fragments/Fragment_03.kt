@@ -34,7 +34,6 @@ class Fragment_03 : Fragment() {
         gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(i: Int): Int {
                 return when {
-                    items[i] is ImageItem -> 6/1
                     items[i] is RichItem_hp -> 6/1
                     items[i] is RichItem_igon -> 6/3
                     items[i] is RichItem -> 6/1
@@ -59,7 +58,6 @@ class Fragment_03 : Fragment() {
 
     private fun requestData() {
         items.clear()
-        items.add(ImageItem(R.mipmap.ic_launcher))
         items.add(RichItem_hp("Terry",R.mipmap.ic_launcher))
         items.add(RichItem_igon("Test_01",R.mipmap.ic_launcher))
         items.add(RichItem_igon("Test_02",R.mipmap.ic_launcher))
