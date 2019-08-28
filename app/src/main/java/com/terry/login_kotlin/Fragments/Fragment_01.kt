@@ -53,6 +53,7 @@ class Fragment_01 : Fragment() {
     private fun requestData() {
         items.clear()
         items.add(ChatItem("Terry",R.mipmap.ic_launcher))
+        items.add(ChatItem("Lee",R.mipmap.ic_launcher))
         multiTypeAdapter.notifyDataSetChanged()
     }
 }

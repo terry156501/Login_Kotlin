@@ -11,6 +11,7 @@
             android:id="@+id/name_01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Terry"
             android:layout_gravity="center"
     />
 </LinearLayout>

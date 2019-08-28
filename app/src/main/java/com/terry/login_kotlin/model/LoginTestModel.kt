@@ -1,14 +1,7 @@
 package com.terry.login_kotlin.model
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Intent
-import android.text.TextUtils
-import com.terry.login_kotlin.MD5Utils
 import com.terry.login_kotlin.contract.ILoginTestContract
-import com.terry.login_kotlin.presenter.LoginTestPresenter
-import com.terry.login_kotlin.view.LoginTestActivity
-import kotlinx.android.synthetic.main.activity_login.*
 
 /**
  * @describe

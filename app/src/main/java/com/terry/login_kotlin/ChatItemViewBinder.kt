@@ -18,11 +18,11 @@ class ChatItemViewBinder:ItemViewBinder<ChatItem,ViewHolder>() {
             .inflate(R.layout.fragment_01_item, parent, false)
         val holder = ViewHolder(view)
         holder.text.setOnClickListener {
-            val intent = Intent(it.context, MsgMain::class.java)
+            val intent = Intent(it.context, MsgMain_00::class.java)
             it.context.startActivity(intent)
         }
         holder.img.setOnClickListener {
-            val intent = Intent(it.context, MsgMain::class.java)
+            val intent = Intent(it.context, MsgMain_00::class.java)
             it.context.startActivity(intent)
         }
         return holder

@@ -59,7 +59,6 @@ class Fragment_03 : Fragment() {
 
     private fun requestData() {
         items.clear()
-        items.add(ImageItem(R.mipmap.ic_launcher))
         items.add(RichItem_hp("Terry",R.mipmap.ic_launcher))
         items.add(RichItem_igon("Test_01",R.mipmap.ic_launcher))
         items.add(RichItem_igon("Test_02",R.mipmap.ic_launcher))

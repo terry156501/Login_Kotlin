@@ -1,5 +1,6 @@
 package com.terry.login_kotlin
 
+import android.content.Intent
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
@@ -71,9 +72,17 @@ class ContactAdapter(mContext: Fragment_02, private var mContactNames:Array<Stri
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is CharacterHolder){
             holder.mTextView.text = resultList!![position].getmName()
+            holder.mTextView.setOnClickListener {
+                var intent = Intent(it.context,MsgMain_00::class.java)
+                it.context.startActivity(intent)
+            }
         }
         else if (holder is ContactHolder) {
             holder.mTextView.text = resultList!![position].getmName()
+            holder.mTextView.setOnClickListener {
+                var intent = Intent(it.context,MsgMain_00::class.java)
+                it.context.startActivity(intent)
+            }
         }
     }
 
