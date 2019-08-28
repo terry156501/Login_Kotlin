@@ -4,6 +4,11 @@
               android:layout_height="match_parent"
               android:background="#d8e0e8"
               android:orientation="vertical">
+    <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_keyboard_arrow_left_grey_400_24dp"/>
 
     <ListView
             android:id="@+id/msg_list_view"

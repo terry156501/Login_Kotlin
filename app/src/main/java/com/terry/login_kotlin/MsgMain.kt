@@ -1,9 +1,13 @@
 package com.terry.login_kotlin
 
+import android.content.Intent
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ListView
 
 import java.util.ArrayList
@@ -14,11 +18,13 @@ class MsgMain : AppCompatActivity() {
     private var inputText: EditText? = null
     private var send: Button? = null
     private var adapter: MsgAdapter? = null
+    private var mBack: ImageView? = null
 
     private val msgList = ArrayList<Msg>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
         val actionBar = supportActionBar
         actionBar!!.hide()
@@ -27,10 +33,18 @@ class MsgMain : AppCompatActivity() {
 
         initMsgs()
         adapter = MsgAdapter(this@MsgMain, R.layout.msg_send, msgList as List<Msg>)
-        inputText = findViewById<EditText>(R.id.input_text)
-        send = findViewById<Button>(R.id.send)
-        msgListView = findViewById<ListView>(R.id.msg_list_view)
+        inputText = findViewById(R.id.input_text)
+        send = findViewById(R.id.send)
+        msgListView = findViewById(R.id.msg_list_view)
+        mBack = findViewById(R.id.back)
         msgListView!!.adapter = adapter
+
+        mBack!!.setOnClickListener{
+            val intent = Intent(this@MsgMain,MainActivity::class.java)
+            intent.putExtra("Fragment","0")
+            startActivity(intent)
+        }
+
         send!!.setOnClickListener {
             val content = inputText!!.text.toString()
             if ("" != content) {

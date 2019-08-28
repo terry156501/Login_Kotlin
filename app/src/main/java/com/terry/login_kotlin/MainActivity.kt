@@ -93,6 +93,8 @@ class MainActivity : AppCompatActivity() {
         var id:Int = intent!!.getIntExtra("Fragment",0)
         if(id == 2){
             switchFragment(0,2)
+        }else if(id == 0){
+            switchFragment(0,0)
         }
     }
 

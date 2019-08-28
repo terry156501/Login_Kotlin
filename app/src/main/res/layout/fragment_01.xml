@@ -4,21 +4,9 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        <ImageView
-                android:id="@+id/head_01"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="left"
-                android:src="@drawable/ic_face_black_24dp"/>
-        <TextView
-                android:id="@+id/msg_f"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Terry"
-                android:textSize="24dp"
-        />
-    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_01_RecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>
